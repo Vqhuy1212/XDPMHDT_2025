@@ -1,23 +1,42 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-
-const vehicles = [
-  { id: 1, name: 'Xe điện Model X', price: '500.000đ/ngày', description: 'Xe điện tiện nghi, tiết kiệm năng lượng.' },
-  { id: 2, name: 'Xe SUV Model Y', price: '700.000đ/ngày', description: 'SUV mạnh mẽ, rộng rãi.' },
-  { id: 3, name: 'Xe hatchback Model Z', price: '400.000đ/ngày', description: 'Xe nhỏ gọn, dễ di chuyển.' },
-];
+import { vehicles } from '../data/vehicles';
 
 function VehicleDetailPage() {
-  const { id } = useParams();
+  const { id } = useParams(); // lấy id từ URL
   const vehicle = vehicles.find(v => v.id === parseInt(id));
 
-  if (!vehicle) return <div>Xe không tồn tại</div>;
+  if (!vehicle) {
+    return <p>Xe không tồn tại.</p>;
+  }
+
+  const handleRent = () => {
+    alert(`Bạn đã thuê: ${vehicle.name} - ${vehicle.price}`);
+  };
 
   return (
-    <div style={{ padding: '20px' }}>
+    <div style={{ padding: '20px', maxWidth: '600px', margin: '0 auto' }}>
       <h1>{vehicle.name}</h1>
-      <p>Giá: {vehicle.price}</p>
-      <p>{vehicle.description}</p>
+      <img 
+        src={vehicle.image} 
+        alt={vehicle.name} 
+        style={{ width: '100%', height: '300px', objectFit: 'cover', borderRadius: '10px', marginBottom: '20px' }}
+      />
+      <p style={{ fontSize: '18px', marginBottom: '10px' }}><strong>Giá:</strong> {vehicle.price}</p>
+      <p style={{ fontSize: '16px', marginBottom: '20px' }}>{vehicle.description}</p>
+      <button 
+        onClick={handleRent}
+        style={{
+          backgroundColor: '#2E8B57',
+          color: 'white',
+          border: 'none',
+          borderRadius: '5px',
+          padding: '10px 20px',
+          cursor: 'pointer'
+        }}
+      >
+        Thuê xe
+      </button>
     </div>
   );
 }
