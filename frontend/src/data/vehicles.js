@@ -1,23 +1,25 @@
-export const vehicles = [
+const vehicles = [
   {
     id: 1,
-    name: 'Xe điện Model X',
-    price: '500.000đ/ngày',
-    description: 'Xe điện tiện nghi, tiết kiệm năng lượng.',
-    image: 'https://via.placeholder.com/200x120?text=Model+X'
+    name: 'VinFast Evo200',
+    battery: 90,
+    location: 'Trạm GTVT',
+    status: 'Sẵn sàng',
   },
   {
     id: 2,
-    name: 'Xe SUV Model Y',
-    price: '700.000đ/ngày',
-    description: 'SUV mạnh mẽ, rộng rãi.',
-    image: 'https://via.placeholder.com/200x120?text=Model+Y'
+    name: 'Yadea G5',
+    battery: 60,
+    location: 'Bến xe Miền Đông',
+    status: 'Đang thuê',
   },
   {
     id: 3,
-    name: 'Xe hatchback Model Z',
-    price: '400.000đ/ngày',
-    description: 'Xe nhỏ gọn, dễ di chuyển.',
-    image: 'https://via.placeholder.com/200x120?text=Model+Z'
-  }
+    name: 'DatBike Weaver++',
+    battery: 75,
+    location: 'Trạm Đại học Quốc gia',
+    status: 'Đang sạc',
+  },
 ];
+
+export default vehicles;
